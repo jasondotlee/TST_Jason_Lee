@@ -20,15 +20,18 @@ const PasswordForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.username || !formData.password || !formData.confirmPassword) {
+      setSuccessMessage("");
       setErrorMessage("Please fill in all fields.");
     } else if (formData.password !== formData.confirmPassword) {
+      setSuccessMessage("");
+
       setErrorMessage("Passwords do not match.");
     } else {
-        setErrorMessage("")
+      setErrorMessage("");
       setSuccessMessage("Form submitted successfully!");
     }
   };
-  console.log({ errorMessage });
+
   return (
     <div className="max-w-md mx-auto mt-5 p-4 border rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-4">Password Form</h2>
